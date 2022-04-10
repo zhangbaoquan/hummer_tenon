@@ -88,7 +88,11 @@ class RootView extends View {
   onAppear() {
     // 页面显示
     console.log('页面显示')
-  }
+    let data = Hummer.urlContent;
+    let appId = Hummer.appId;
+    console.log('coffer_tag map: ' + JSON.stringify(data));
+    console.log('coffer_tag appId: ' + appId);
+}
 
   onDisappear() {
     // 页面隐藏
@@ -197,6 +201,8 @@ class ModulesItemView extends View{
 
   getPoss(pos:number):void{
     console.log("位置啦啦 : " + pos)
+    pos = pos+1
+    Toast.show('第'+pos+'个')
   }
 }
 

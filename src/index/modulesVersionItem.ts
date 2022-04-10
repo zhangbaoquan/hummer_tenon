@@ -1,13 +1,13 @@
 import { Text, View } from "@hummer/hummer-front";
-import {CallBackListener} from '../index/SelectCallBack'
 
 export class ModulesVersionItemView extends View{
     /**
-     * 
+     * @param view 父容器，回调使用，用来表示作用域
      * @param data 二级目录下的数据
      * @param position 二级目录下对应的Item position
+     * @param listener 回调方法
      */
-    constructor(data:any,position:number){
+    constructor(view:View,data:any,position:number,listener:Function){
         console.log('coffer_tag content 数据: ')
         // constructor(data:any,position:number,listener:CallBackListener){
         super();
@@ -21,16 +21,16 @@ export class ModulesVersionItemView extends View{
     
           fontSize: 20,
         }
-        // let line = new View()
-        // line.style = {
-        //     width : '100%',
-        //     height : 3,
-        //     backgroundColor : '#FFFFFF'
-        // }
-        // this.appendChild(line)
+        let line = new View()
+        line.style = {
+            width : '100%',
+            height : 3,
+            backgroundColor : '#FFFFFF'
+        }
+        this.appendChild(line)
         this.appendChild(textName)
-        // this.addEventListener('tap',event =>{
-        //     listener
-        // })
+        this.addEventListener('tap',event =>{
+            listener.call(view,position)
+        })
     }
 }
