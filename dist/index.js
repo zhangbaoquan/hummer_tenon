@@ -859,6 +859,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import {ModulesVersionItemView} from '../index/modulesVersionItem'
 
 var moduleScrollView = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.Scroller();
 var infoDialog = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.Dialog();
@@ -908,6 +909,10 @@ var RootView = /*#__PURE__*/function (_View) {
         marginLeft: 16,
         resize: 'contain'
       };
+      back.addEventListener('tap', function (event) {
+        // 关闭页面
+        _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.Navigator.popPage();
+      });
       var tittle = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.Text();
       tittle.text = "coffer hummer";
       tittle.style = {
@@ -946,7 +951,28 @@ var RootView = /*#__PURE__*/function (_View) {
     }
   }, {
     key: "onCreate",
-    value: function onCreate() {}
+    value: function onCreate() {
+      // 页面创建
+      console.log('页面创建');
+    }
+  }, {
+    key: "onAppear",
+    value: function onAppear() {
+      // 页面显示
+      console.log('页面显示');
+    }
+  }, {
+    key: "onDisappear",
+    value: function onDisappear() {
+      // 页面隐藏
+      console.log('页面隐藏');
+    }
+  }, {
+    key: "onDestroy",
+    value: function onDestroy() {
+      // 页面销毁
+      console.log('页面销毁');
+    }
   }]);
 
   return RootView;
@@ -981,6 +1007,11 @@ var ModulesItemView = /*#__PURE__*/function (_View2) {
 
   var _super2 = (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(ModulesItemView);
 
+  /**
+   * 
+   * @param data 一级目录下的数据
+   * @param position 一级目录下的position
+   */
   function ModulesItemView(data, position) {
     var _this2;
 
@@ -1013,40 +1044,109 @@ var ModulesItemView = /*#__PURE__*/function (_View2) {
     _this2.appendChild(textName);
 
     _this2.addEventListener('tap', function (event) {
-      // 弹出dialog
+      event.type; // 弹出dialog
+
+      console.log("第" + position + "个位置"); // 最外层必须是View，不能是Scroller
+
       var dialogView = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.View();
       dialogView.style = {
         width: '80%',
         height: '80%',
         backgroundColor: '#FFFFFF'
       };
-      dialogView.addEventListener('tap', function (event) {
-        infoDialog.dismiss();
-      });
+      var scroll = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.Scroller();
+      scroll.style = {
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#12b7f5'
+      };
+      dialogView.appendChild(scroll);
+
+      _this2.appendDialogItemView(scroll, data, position);
+
       infoDialog.custom(dialogView);
     });
 
     return _this2;
-  } // loadData(data :any){
-  // }
+  }
 
+  (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(ModulesItemView, [{
+    key: "appendDialogItemView",
+    value: function appendDialogItemView(parentView, data, position) {
+      var children = data.children;
+      console.log("children size : " + children.length);
 
-  return (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(ModulesItemView);
+      if (children != null && children.length > 0) {
+        var size = children.length;
+
+        for (var i = 0; i < size; i++) {
+          console.log("啦啦 : " + i); // 注意这里的回调函数，
+
+          parentView.appendChild(new ModulesVersionItemView(this, children[i], i, this.getPoss.bind(this)));
+        }
+      }
+    }
+  }, {
+    key: "getPoss",
+    value: function getPoss(pos) {
+      console.log("位置啦啦 : " + pos);
+    }
+  }]);
+
+  return ModulesItemView;
 }(_hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.View);
-/**
- * Dialog 中的ItemView
- */
-
 
 var ModulesVersionItemView = /*#__PURE__*/function (_View3) {
   (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_2__["default"])(ModulesVersionItemView, _View3);
 
   var _super3 = (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(ModulesVersionItemView);
 
-  function ModulesVersionItemView() {
+  /**
+    * @param view 父容器，回调使用，用来表示作用域
+    * @param data 二级目录下的数据
+    * @param position 二级目录下对应的Item position
+    * @param listener 回调方法
+    */
+  function ModulesVersionItemView(view, data, position, listener) {
+    var _this3;
+
     (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ModulesVersionItemView);
 
-    return _super3.apply(this, arguments);
+    _this3 = _super3.call(this);
+    _this3.style = {
+      width: '100%',
+      height: 60,
+      backgroundColor: '#95E3C3',
+      flexDirection: 'column'
+    };
+    console.log('coffer_tag content : ' + data.name);
+    var textName = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.Text();
+    textName.text = data.name;
+    console.log("name is : " + data.name);
+    textName.style = {
+      color: '#5c6273',
+      textAlign: 'center',
+      fontSize: 20
+    };
+    var line = new _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__.View();
+    line.style = {
+      width: '100%',
+      height: 3,
+      backgroundColor: '#FFFFFF'
+    };
+
+    _this3.appendChild(line);
+
+    _this3.appendChild(textName);
+
+    _this3.addEventListener('tap', function (event) {
+      console.log("第" + position + "个位置"); // 注意这里的回调函数的使用，Function里的call方法
+
+      listener.call(view, position);
+      infoDialog.dismiss();
+    });
+
+    return _this3;
   }
 
   return (0,_opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(ModulesVersionItemView);
