@@ -8,30 +8,30 @@ class RootView extends View {
         this.style = {
             width: '100%',
             height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#12b7f5',
+            flexDirection : 'column',
+            // justifyContent: 'center',
+            alignItems: 'flex-start',
+            backgroundColor: '#FFFFFF'
         }
-
-        // let textView = new Text();
-        // textView.text = "~ Hello Hummer ~";
-        // textView.style = {
-        //     fontSize: 20,
-        //     color: '#000000',
-        // }
-
-        // this.appendChild(textView);
+        this.appendChild(new childView());
+        let line = new View()
+        line.style = {
+            width : '100%',
+            height : 1,
+            backgroundColor : '#FFFFFF'
+        }
+        this.appendChild(line)
         this.appendChild(new childView());
     }
 
-    // onAppear() {
-    //     // 页面显示
-    //     console.log('页面显示')
-    //     let data = Hummer.urlContent;
-    //     let appId = Hummer.appId;
-    //     console.log('coffer_tag map: ' + JSON.stringify(data));
-    //     console.log('coffer_tag appId: ' + appId);
-    // }
+    onAppear() {
+        // 页面显示
+        console.log('页面显示')
+        let data = Hummer.pageInfo;
+        console.log('coffer_tag map: ' + JSON.stringify(data));
+        let appId = data.params.appId;
+        console.log('coffer_tag appId: ' + appId);
+    }
 }
 
 Hummer.render(new RootView());
