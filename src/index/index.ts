@@ -1,6 +1,6 @@
 import {Hummer,View, Text, Scroller, Image, Button, Toast, Request, Dialog, Navigator} from '@hummer/hummer-front'
 import backImg from '../header_arrow.png'
-// import {ModulesVersionItemView} from '../index/modulesVersionItem'
+import {ModulesVersionItemView} from './modulesVersionItem'
 
 let moduleScrollView = new Scroller()
 let infoDialog = new Dialog()
@@ -194,15 +194,16 @@ class ModulesItemView extends View{
         for(var i = 0; i < size ; i++){
           console.log("啦啦 : " + i)
           // 注意这里的回调函数，
-          parentView.appendChild(new ModulesVersionItemView(this,children[i],i,this.getPoss.bind(this)))
+          parentView.appendChild(new ModulesVersionItemView(this,children[i],i,position,this.getPoss.bind(this)))
         }
       }
   }
 
-  getPoss(pos:number):void{
+  getPoss(parentPos:number,pos:number):void{
     console.log("位置啦啦 : " + pos)
     pos = pos+1
-    Toast.show('第'+pos+'个')
+    parentPos=parentPos+1
+    Toast.show('第'+parentPos+'层'+'第'+pos+'个')
   }
 }
 
@@ -211,9 +212,10 @@ class ModulesVersionItemView extends View{
      * @param view 父容器，回调使用，用来表示作用域
      * @param data 二级目录下的数据
      * @param position 二级目录下对应的Item position
+     * @param parentPos 父层pos
      * @param listener 回调方法
      */
-  constructor(view:any,data:any,position:number,listener:Function){
+  constructor(view:any,data:any,position:number,parentPos:number,listener:Function){
       super();
       this.style = {
         width : '100%',
@@ -242,7 +244,7 @@ class ModulesVersionItemView extends View{
       this.addEventListener('tap',event =>{
         console.log("第"+position+"个位置")
         // 注意这里的回调函数的使用，Function里的call方法
-        listener.call(view,position)
+        listener.call(view,parentPos,position)
         infoDialog.dismiss()
       })
   }

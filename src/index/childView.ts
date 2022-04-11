@@ -1,6 +1,6 @@
 import { Hummer, Text, View } from "@hummer/hummer-front";
 
-class childView extends Text{
+export class childView extends Text{
     constructor(){
         super();
         this.style = {
