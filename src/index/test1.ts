@@ -11,7 +11,8 @@ class RootView extends View {
             flexDirection : 'column',
             // justifyContent: 'center',
             alignItems: 'flex-start',
-            backgroundColor: '#FFFFFF'
+            backgroundColor: '#FFFFFF',
+            
         }
         this.appendChild(new childView());
         let line = new View()
