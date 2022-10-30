@@ -1,6 +1,6 @@
 import {Hummer,View, Text, Scroller, Image, Button, Toast, Request, Dialog, Navigator} from '@hummer/hummer-front'
 import backImg from '../header_arrow.png'
-import {ModulesVersionItemView} from './modulesVersionItem'
+import {ModulesVersionItemView} from '../test/modulesVersionItem'
 
 let moduleScrollView = new Scroller()
 let infoDialog = new Dialog()
