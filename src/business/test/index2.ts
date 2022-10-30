@@ -1,5 +1,5 @@
 import {Hummer, Scroller, View} from "@hummer/hummer-front";
-import {ItemView} from "../views/itemView";
+import {ItemView} from "./views/itemView";
 
 class RootView extends View {
     constructor() {

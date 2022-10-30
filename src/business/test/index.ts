@@ -1,6 +1,6 @@
 import {Hummer,View, Text, Scroller, Image, Button, Toast, Request, Dialog, Navigator} from '@hummer/hummer-front'
-import backImg from '../header_arrow.png'
-import {ModulesVersionItemView} from '../test/modulesVersionItem'
+import backImg from '../../header_arrow.png'
+import {ModulesVersionItemView} from './modulesVersionItem'
 
 let moduleScrollView = new Scroller()
 let infoDialog = new Dialog()
@@ -102,7 +102,7 @@ class RootView extends View {
   onDestroy() {
     // 页面销毁
     console.log('页面销毁')
-    
+
   }
 
 }
@@ -123,7 +123,7 @@ function requeestNet(){
     for(var i = 0;i<size;i++){
       moduleScrollView.appendChild(new ModulesItemView(data[i],i))
     }
-    
+
   });
 }
 
@@ -131,9 +131,9 @@ function requeestNet(){
  * 最外层的ItemView
  */
 class ModulesItemView extends View{
-  
+
   /**
-   * 
+   *
    * @param data 一级目录下的数据
    * @param position 一级目录下的position
    */
@@ -223,7 +223,7 @@ class ModulesVersionItemView extends View{
         backgroundColor : '#95E3C3',
         flexDirection : 'column'
       }
-      
+
       console.log('coffer_tag content : '+data.name)
       let textName = new Text()
       textName.text = data.name

@@ -492,10 +492,10 @@ function run(container, type = 'tenon-vue') {
 
 /***/ }),
 
-/***/ "./src/views/itemView.ts":
-/*!*******************************!*\
-  !*** ./src/views/itemView.ts ***!
-  \*******************************/
+/***/ "./src/business/test/views/itemView.ts":
+/*!*********************************************!*\
+  !*** ./src/business/test/views/itemView.ts ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -880,9 +880,9 @@ function _typeof(obj) {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!*****************************!*\
-  !*** ./src/index/index2.ts ***!
-  \*****************************/
+/*!*************************************!*\
+  !*** ./src/business/test/index2.ts ***!
+  \*************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../../../opt/homebrew/lib/node_modules/@hummer/cli/node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../../../opt/homebrew/lib/node_modules/@hummer/cli/node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _opt_homebrew_lib_node_modules_hummer_cli_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../opt/homebrew/lib/node_modules/@hummer/cli/node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../../../opt/homebrew/lib/node_modules/@hummer/cli/node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
@@ -891,7 +891,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hummer_tenon_dev_tool_dist_tenon_dev_tool_es__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @hummer/tenon-dev-tool/dist/tenon-dev-tool.es */ "./node_modules/@hummer/tenon-dev-tool/dist/tenon-dev-tool.es.js");
 /* harmony import */ var _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @hummer/hummer-front */ "@hummer/hummer-front");
 /* harmony import */ var _hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_hummer_hummer_front__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _views_itemView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/itemView */ "./src/views/itemView.ts");
+/* harmony import */ var _views_itemView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/itemView */ "./src/business/test/views/itemView.ts");
 
 
 
