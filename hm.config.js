@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   type: 'hummer',
   webpack: {
-    entries: "src/business/test/index2.ts",
+    entries: "src/business/broad_order/broadOrderView.ts",
     output: {
       path: path.resolve(__dirname, './dist'),
       filename: "[name].js"
